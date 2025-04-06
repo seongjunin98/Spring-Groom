@@ -1,4 +1,12 @@
 package com.seongjun.section02.common;
 
-public class Pikachu {
+import org.springframework.stereotype.Component;
+
+@Component
+public class Pikachu implements Pokemon{
+
+    @Override
+    public void attack(){
+        System.out.println("피카츄 백만볼트⚡");
+    }
 }
