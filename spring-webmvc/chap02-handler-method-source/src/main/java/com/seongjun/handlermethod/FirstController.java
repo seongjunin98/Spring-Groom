@@ -1,14 +1,17 @@
 package com.seongjun.handlermethod;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
 
 import java.util.Map;
 
 @Controller
 @RequestMapping("/first/*")
+@SessionAttributes("id")
 public class FirstController {
 
     @GetMapping("regist")
@@ -71,4 +74,57 @@ public class FirstController {
 
         return "first/searchResult";
     }
+
+    @GetMapping("login")
+    public void login(){}
+
+    @PostMapping("login1")
+    public String sessionTest1(HttpSession session, @RequestParam String id){
+
+        session.setAttribute("id", id);
+
+        return  "first/loginResult";
+    }
+
+    @GetMapping("logout1")
+    public String logoutTest1(HttpSession session){
+
+        session.invalidate();
+
+        return "first/loginResult";
+    }
+
+    @PostMapping("login2")
+    public String sessionTest2(Model model, @RequestParam String id){
+
+        model.addAttribute("id", id);
+
+        return "first/loginResult";
+    }
+
+    /* SessionAttributes로 등록된 값은 session의 상태를 관리하는 SessionStatus의 setComplete() 메소드를 호출해야
+    * 사용이 만료된다. */
+    @GetMapping("logout2")
+    public String logoutTest2(SessionStatus sessionStatus) {
+
+        sessionStatus.setComplete();
+
+        return "first/loginResult";
+    }
+
+    @GetMapping("body")
+    public void body(){}
+
+    @PostMapping("body")
+    public void bodyTest(@RequestBody String body,
+                         @RequestHeader("content-type") String contentType,
+                         @CookieValue(value = "JSESSIONID", required = false) String sessionId
+                         ){
+
+        System.out.println("body " + body);
+        System.out.println("contentType " + contentType);
+        System.out.println("sessionId = " + sessionId);
+
+    }
+
 }
