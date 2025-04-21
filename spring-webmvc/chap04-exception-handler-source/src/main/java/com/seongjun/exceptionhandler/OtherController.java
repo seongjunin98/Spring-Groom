@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ExceptionHandlerController {
+public class OtherController {
 
-    @GetMapping("controller-null")
-    public String nullPointerExceptionTest() {
+    @GetMapping("other-controller-null")
+    public String otherNullPointerException(){
 
         String str = null;
         System.out.println(str.charAt(0));
@@ -17,32 +17,32 @@ public class ExceptionHandlerController {
         return "/";
     }
 
-    @ExceptionHandler(NullPointerException.class)
-    public String nullPointExceptionHandler(NullPointerException exception) {
-
-        System.out.println("controller 레벨의 exception 처리");
-
-        return "error/nullPointer";
-    }
-
-    @GetMapping("controller-user")
-    public String userExceptionTest() throws MemberRegistException {
+    @GetMapping("other-controller-user")
+    public String otherUserExceptionTest() throws MemberRegistException {
 
         boolean check = true;
         if(check) {
             throw new MemberRegistException("회원을 받을 수 없습니다!");
-
         }
-            return "/";
+
+        return "/";
     }
 
     @ExceptionHandler(MemberRegistException.class)
     public String userExceptionHandler(Model model, MemberRegistException exception) {
 
-        System.out.println("controller 레벨의 exception 처리");
+        System.out.println("Global 레벨의 exception 처리");
         model.addAttribute("exception", exception);
 
         return "error/memberRegist";
     }
 
+    @GetMapping("other-controller-array")
+    public String otherArrayExceptionTest(){
+
+        double[] array = new double[0];
+        System.out.println(array[0]);
+
+        return "/";
+    }
 }
