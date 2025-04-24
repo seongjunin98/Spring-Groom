@@ -1,0 +1,31 @@
+### 전체 회원 조회
+GET 127.0.0.1:8080/entity/users
+
+### 회원 상세 조회
+GET 127.0.0.1:8080/entity/users/1
+
+### 신규 회원 등록
+POST http://127.0.0.1:8080/entity/users
+Content-Type: application/json
+
+{
+  "id": "userTest",
+  "pwd": "pwdTest",
+  "name": "유니콘",
+  "enrollDate": "2025-04-23"
+}
+
+### 기본 회원 수정
+PUT localhost:8080/entity/users/4
+Content-Type: application/json
+
+{
+  "id": "modifyTest",
+  "pwd": "modifyTest",
+  "name": "진화한 유니콘"
+}
+
+### 회원 삭제
+DELETE  localhost:8080/entity/users/2
+
+

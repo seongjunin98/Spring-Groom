@@ -1,0 +1,17 @@
+### GET request to example server
+GET http://localhost:8080/response/hello
+
+### object 응답
+GET http://127.0.0.1:8080/response/message
+
+### list 응답
+GET http://127.0.0.1:8080/response/list
+
+### map 응답
+GET http://127.0.0.1:8080/response/map
+
+### images 응답
+GET http://127.0.0.1:8080/response/image
+
+### ResponseEntity 응답
+GET http://127.0.0.1:8080/response/entity
