@@ -1,5 +1,8 @@
 package com.seongjun.restapi.section05.swagger;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -31,6 +34,7 @@ public class SwaggerTestController {
         users.add(new UserDTO(3, "user03", "pass03", "너구리", new Date()));
     }
 
+    @Operation(summary = "전체 회우너 조회", description = "전체 회원 목록을 조회한다.")
     @GetMapping("/users")
     public ResponseEntity<ResponseMessage> findAllUsers() {
 
@@ -48,6 +52,7 @@ public class SwaggerTestController {
     }
 
     /* 회원 상세 조회 */
+    @Operation(summary = "회원번호로 회원 조회", description = "회원번호로 통해 해당하는 회원 번호를 조회한다.")
     @GetMapping("/users/{userNo}")
     public ResponseEntity<ResponseMessage> findUserByNo(@PathVariable int userNo) {
 
@@ -69,6 +74,7 @@ public class SwaggerTestController {
     }
 
     /* 회원 추가 */
+    @Operation(summary = "신규 회원 등록")
     @PostMapping("/users")
     public ResponseEntity<?> registUser(@RequestBody UserDTO newUser) {
 
@@ -85,6 +91,7 @@ public class SwaggerTestController {
     }
 
     /* 회원 수정 */
+    @Operation(summary = "회원정보 수정")
     @PutMapping("/users/{userNo}")
     public ResponseEntity<?> modifyUser(@PathVariable int userNo, @RequestBody UserDTO modifyInfo) {
 
@@ -101,6 +108,11 @@ public class SwaggerTestController {
     }
 
     /* 회원 삭제 */
+    @Operation(summary = "회원정보 삭제")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", description = "회원 정보 삭제 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못 입력된 파라미터")
+    })
     @DeleteMapping("/users/{userNo}")
     public ResponseEntity<?> removeUser(@PathVariable int userNo) {
 
