@@ -1,0 +1,32 @@
+### 회원가입
+POST http://localhost:8080/signup
+Content-Type: application/json
+Accept: */*
+
+{
+  "userId": "user03",
+  "userPass": "pass03",
+  "userName": "코알라",
+  "userEmail": "koala@ohgiraffers.com",
+  "role": "ALL"
+}
+
+### 로그인 (비밀번호 포함하기 때문에 post 방식으로 보낸다.)
+POST http://localhost:8080/login
+Content-Type: application/json
+Accept: */*
+
+{
+  "id": "user01",
+  "pass": "pass01"
+}
+
+### GET요청
+GET http://localhost:8080/test
+Authorization: BEARER eyJkYXRlIjoxNzQ1ODE5MjUxNDg3LCJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJSb2xlIjoiQURNSU4iLCJzdWIiOiJvaGdpcmFmZmVycyB0b2tlbiAxIiwidXNlck5hbWUiOiLsvZTslYzrnbwiLCJleHAiOjE3NDU5MDU2NTF9.Wvau1E2oUvS_XOdSIC4VCtWyEAmsEx5U1qqh7ZudDfA
+
+### POST 요청
+POST http://localhost:8080/test
+Content-Type: application/json
+Accept: */*
+Authorization: BEARER eyJkYXRlIjoxNzQ1ODE5MjUxNDg3LCJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJSb2xlIjoiQURNSU4iLCJzdWIiOiJvaGdpcmFmZmVycyB0b2tlbiAxIiwidXNlck5hbWUiOiLsvZTslYzrnbwiLCJleHAiOjE3NDU5MDU2NTF9.Wvau1E2oUvS_XOdSIC4VCtWyEAmsEx5U1qqh7ZudDfA
