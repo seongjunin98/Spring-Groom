@@ -26,4 +26,6 @@ public class MainController {
         model.addAttribute("username", userForm.getName());
         return "result";
     }
+
+    
 }
