@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form action="/submit" method="post" th:object="${userForm}">
+    이름 : <input type="text" th:field="*{name}"/><br>
+    이메일 : <input type="email" th:field="*{email}"/><br>
+    <button type="submit">전송</button>
+
+  </form>
+</body>
+</html>
