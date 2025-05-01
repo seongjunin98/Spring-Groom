@@ -8,17 +8,22 @@ import java.util.List;
 
 @Service
 public class PostService {
+
     private final PostRepository repository;
 
-    public PostService(PostRepository repository){
+    public PostService(PostRepository repository) {
         this.repository = repository;
     }
 
-    public void createPost(Post post){
+    public void createPost(Post post) {
         repository.save(post);
     }
 
-    public List<Post> getAllPosts(){
+    public List<Post> getAllPosts() {
         return repository.findAll();
+    }
+
+    public Post getPostById(Long id) {
+        return repository.findById(id);
     }
 }
