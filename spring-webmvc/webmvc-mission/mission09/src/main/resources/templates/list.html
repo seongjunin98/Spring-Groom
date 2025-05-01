@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 목록</title>
+</head>
+<body>
+    <h2>게시글 목록</h2>
+    <ul>
+        <li th:each="post : ${posts}">
+            <strong th:text="${post.title}"></strong><br/>
+            <p th:text="${post.content}"></p>
+            <hr/>
+        </li>
+    </ul>
+    <a href="/posts/new"> 새 글 작성</a>
+</body>
+</html>
