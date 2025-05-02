@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Welcome</title>
+  <meta charset="UTF-8">
+  <title>환영 페이지</title>
 </head>
 <body>
-  <h1>🎉 로그인 성공! 환영합니다!</h1>
-  <a th:href="@{/logout}">로그아웃</a>
+<h1>환영합니다!</h1>
+<form action="/logout" method="post">
+  <input type="submit" value="로그아웃"/>
+  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+</form>
 </body>
 </html>
