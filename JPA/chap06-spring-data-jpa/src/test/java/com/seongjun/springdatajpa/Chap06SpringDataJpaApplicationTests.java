@@ -1,4 +1,4 @@
-package com.seongjun.springdatejpa;
+package com.seongjun.springdatajpa;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

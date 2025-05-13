@@ -1,4 +1,4 @@
-package com.seongjun.springdatejpa;
+package com.seongjun.springdatajpa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

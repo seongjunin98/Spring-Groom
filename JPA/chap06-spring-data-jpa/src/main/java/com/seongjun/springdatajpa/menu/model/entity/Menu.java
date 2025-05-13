@@ -1,4 +1,4 @@
-package com.seongjun.springdatejpa.menu.model.entity;
+package com.seongjun.springdatajpa.menu.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,14 +8,15 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Setter
+//@Setter
+@Builder(toBuilder = true)
 @ToString
 public class Menu {
 
     @Id
     @Column(name = "menu_code")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int menucode;
+    private int menuCode;
 
     @Column(name = "menu_name")
     private String menuName;
